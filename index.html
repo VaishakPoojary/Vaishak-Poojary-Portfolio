@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vaishak Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body data-bs-theme="dark">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1800,
+      once: false
+    });
+
+    // ✅ Scroll to top before refresh
+    window.addEventListener("beforeunload", function () {
+      window.scrollTo(0, 0);
+    });
+
+    // ✅ Also ensure scroll to top on full load
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 10);
+    });
+
+    AOS.init({
+    duration: 1800,
+    once: false // allows repeat on scroll
+  });
+
+  // Animate skill bars on scroll into view
+  function animateSkillBars() {
+    const skills = document.querySelectorAll('.skills-section .fill');
+    skills.forEach((bar) => {
+      const targetWidth = bar.getAttribute('data-width');
+      const rect = bar.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        bar.style.width = targetWidth;
+      } else {
+        bar.style.width = "0%"; // reset when out of view
+      }
+    });
+  }
+
+  window.addEventListener('scroll', animateSkillBars);
+  window.addEventListener('load', animateSkillBars);
+  </script>
+</body>
+
+
+
+<!-- Header -->
+<style>
+    /* Sticky themed header styles */
+  .theme-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+  }
+
+  .theme-header .navbar-nav .nav-link,
+  .theme-header .navbar-brand {
+    color: var(--bs-body-color) !important;
+  }
+
+  .toggle-theme-btn {
+    color: var(--bs-body-color);
+    border-color: var(--bs-body-color);
+  }
+
+  .toggle-theme-btn:hover {
+    background-color: var(--bs-body-color);
+    color: var(--bs-body-bg);
+  }
+
+  /* Section offset for scroll */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Divider under header */
+  .header-divider {
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    opacity: 0.3;
+  }
+
+  [data-bs-theme="dark"] .header-divider {
+    background-color: white;
+  }
+
+  [data-bs-theme="light"] .header-divider {
+    background-color: black;
+  }
+  
+  
+   
+</style>
+</head>
+<body data-bs-theme="dark">
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg theme-header">
+  <div class="container justify-content-between">
+    <a class="navbar-brand" href="#home">VP</a>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <button class="btn btn-outline toggle-theme-btn" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center" id="home">
+  <div class="container px-5">
+    <div class="row align-items-center">
+      
+    <!-- Left -->
+<div class="col-md-6 text-section" data-aos="fade-right">
+  <h1 class="display-3 fw-bold">
+    Hi, I'm <span class="highlight">Vaishak Poojary</span>
+  </h1>
+  <h4 class="role-typing"><span id="typed-role"></span></h4>
+  <p class="mt-3">A passionate Data Analyst skilled in transforming raw data into insights using Excel, Python, SQL, Tableau, and Power BI.</p>
+
+  <!-- Removed AOS from here -->
+  <div class="social-icons mt-4">
+    <a href="https://www.linkedin.com/in/vaishak-poojary/"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/VaishakPoojary"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/v_a_i_s_h_a_k_p_o_o_j_a_r_y?igsh=MXZ0anlrdDEzcnNuNQ=="><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+
+      <!-- Right -->
+      <div class="col-md-6 text-center" data-aos="fade-left">
+        <div class="bubble-container">
+          <div class="bubble data">Data Analyst</div>
+          <div class="bubble sql">Excel</div>
+          <div class="bubble powerbi">Power BI</div>
+          <div class="bubble python">Python</div>
+          <div class="bubble excel">SQL</div>
+          <div class="bubble tableau">Tableau</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about-section">
+  <div class="container py-4 d-flex flex-column align-items-center justify-content-center text-center position-relative">
+    
+    <!-- Title -->
+    <div class="mb-3" data-aos="fade-down">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Let me introduce myself</p>
+    </div>
+
+    <!-- Text Content -->
+    <div class="col-md-10 col-lg-8" data-aos="fade-up">
+      <h3 class="fw-bold">I'm Vaishak, a curious mind who turns data into action.</h3>
+      <p class="mt-3">
+        I specialize in Data Analytics using tools like Excel, SQL, Power BI, Python, and Tableau.
+        I enjoy solving business problems and presenting insights through stunning dashboards and automated workflows.
+      </p>
+      <a href="Vaishak Poojary Resume - Data Analyst.pdf" class="btn btn-primary mt-3" target="_blank">Resume</a>
+    </div>
+
+    <!-- Orbit Icons -->
+  <div class="orbit-wrapper mt-3">
+  <div class="orbit" data-aos="fade-up" data-aos-delay="0"><i class="fas fa-database"></i></div>
+  <div class="orbit" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-chart-bar"></i></div>
+  <div class="orbit" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-file-excel"></i></div>
+  <div class="orbit" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-code"></i></div>
+  <div class="orbit" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-table"></i></div>
+  </div>
+
+    
+  </div>
+</section>
+
+
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+
+
+<!-- PROJECT SECTION -->
+<section id="projects" class="project-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-subtitle">Showcasing My Work</p>
+    </div>
+    <div class="row g-4">
+      <!-- Project 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in">
+        <div class="card project-box h-100">
+          <img src="Audi.jpg" class="card-img-top" alt="Audi Project">
+          <div class="card-body text-center">
+            <h5 class="card-title mt-2 fw-bold">Audi Data-Set Representation</h5>
+            <p class="card-text">Analysis of Audi Sales & Tax Analysis Dashboard | Power BI + Python Project.</p>
+             <a href="https://github.com/VaishakPoojary/Audi-Sales-Tax-Analysis-Dashboard-Power-BI-Python-Project" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vaishak-poojary/details/projects/563851017/multiple-media-viewer/?profileId=ACoAAD344FQBWVkTJ1kH9qnEQs5Syr87zbrKAO0&treasuryMediaId=1752910508323" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card project-box h-100">
+          <img src="Blinkit.png" class="card-img-top" alt="Blinkit Project">
+          <div class="card-body text-center">
+            <h5 class="card-title mt-2 fw-bold">Blinkit Data-Set Representation</h5>
+            <p class="card-text">Developed a dynamic and interactive Power BI dashboard to analyze and visualize sales performance of Blinkit.</p>
+             <a href="https://github.com/VaishakPoojary/VaishakPoojary--Blinkit-Data-Set-Representation-2011-2022" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vaishak-poojary/details/projects/149976229/multiple-media-viewer/?profileId=ACoAAD344FQBWVkTJ1kH9qnEQs5Syr87zbrKAO0&treasuryMediaId=1752581281630" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card project-box h-100">
+          <img src="Bmw.jpg" class="card-img-top" alt="BMW Project">
+          <div class="card-body text-center">
+            <h5 class="card-title mt-2 fw-bold">BMW Data-Set Representation</h5>
+            <p class="card-text">BMW Sales & Market Analysis Project (2010–2024)Power BI | Excel | Python.</p>
+            <a href="https://github.com/VaishakPoojary/BMW-DataSet-Representation" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vaishak-poojary/details/projects/234495537/multiple-media-viewer/?profileId=ACoAAD344FQBWVkTJ1kH9qnEQs5Syr87zbrKAO0&treasuryMediaId=1752581152735" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="skills-section py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title">My Skills<span class="text-accent">.</span></h2>
+      <p class="section-subtitle"><i class="fas fa-chart-line"></i> Tool & Tech Proficiency</p>
+    </div>
+
+    <div class="skills-list mx-auto" style="max-width: 700px;" data-aos="fade-up">
+      <div class="skill-item">
+        <h6>Power BI</h6>
+        <div class="skill-bar"><div class="fill" data-width="70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h6>Python</h6>
+        <div class="skill-bar"><div class="fill" data-width="60%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h6>SQL</h6>
+        <div class="skill-bar"><div class="fill" data-width="45%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h6>Excel</h6>
+        <div class="skill-bar"><div class="fill" data-width="85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h6>Tableau</h6>
+        <div class="skill-bar"><div class="fill" data-width="50%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+
+<!-- EDUCATION SECTION -->
+<section id="education" class="education-section py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="sectiontitle">Qualification<span class="text-accent">.</span></h2>
+      <p class="section-subtitle"><i class="fas fa-graduation-cap"></i> Education</p>
+    </div>
+
+    <div class="timeline-container mx-auto">
+      <!-- Entry 1 -->
+      <div class="timeline-entry" data-aos="fade-right">
+        <div class="timeline-icon"></div>
+        <div class="timeline-content">
+          <h5>HSC (Commerce)</h5>
+          <p class="subtext">Maharashtra State Board</p>
+          <p class="date"><i class="fas fa-calendar-alt"></i> Jul 2020 – Apr 2022</p>
+        </div>
+      </div>
+
+      <!-- Entry 2 -->
+      <div class="timeline-entry" data-aos="fade-left">
+        <div class="timeline-icon"></div>
+        <div class="timeline-content">
+          <h5>BSc in Information Technology(IT)</h5>
+          <p class="subtext">University of Mumbai</p>
+          <p class="date"><i class="fas fa-calendar-alt"></i> Aug 2022 – May 2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title">Contact Me<span class="text-accent">.</span></h2>
+      <p class="section-subtitle"><i class="fas fa-envelope"></i> Let's get in touch</p>
+    </div>
+
+    <form id="contactForm" class="mx-auto" style="max-width: 600px;" data-aos="fade-up" data-aos-delay="200">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" class="form-control" required placeholder="Vaishak Poojary"/>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" class="form-control" required placeholder="vaishupoojari383@gmil.com" />
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone No:</label>
+        <input type="tel" id="phone" class="form-control" required placeholder="9136719084"/>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message:</label>
+        <textarea id="message" class="form-control" rows="4" required placeholder="Feel free to say hi or ask anything!"></textarea>
+      </div>
+
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Send Message via WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+<!-- Divider Line Below Header -->
+<div class="header-divider"></div>
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center py-4">
+
+    <!-- Left -->
+    <div class="footer-text text-center text-md-start mb-3 mb-md-0">
+      <p class="mb-1 fw-bold">Vaishak Poojary</p>
+      <p class="mb-0 small">Turning Data into Decisions | &copy; 2025</p>
+      <p class="mb-0 small">
+        <i class="fas fa-laptop-code"></i> Developed by <strong>Vaishak Poojary</strong>
+        <i class="fas fa-coffee ms-2"></i> Fueled by AI
+      </p>
+    </div>
+
+    <!-- Right -->
+    <div class="footer-icons text-center text-md-end">
+      <a href="https://www.linkedin.com/in/vaishak-poojary/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/VaishakPoojary" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/v_a_i_s_h_a_k_p_o_o_j_a_r_y?igsh=MXZ0anlrdDEzcnNuNQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:vaishupoojari383@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- External libraries -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="backend.js"></script>
+</body>
+
+</html>
